@@ -56,6 +56,7 @@
         </div>
       </div>
       <div class="drawer-overlay" id="drawerOverlay"></div>
+      <div class="drawer-clip">
       <aside class="drawer" id="drawer" aria-hidden="true">
         <div class="drawer-head">
           <a class="brand" href="index.html">
@@ -72,7 +73,8 @@
           <p style="display:flex;gap:.5rem;align-items:center;margin:.4rem 0"><i data-lucide="phone" style="width:16px;height:16px;color:var(--green-600)"></i> +224 610 08 74 74</p>
           <p style="display:flex;gap:.5rem;align-items:center;margin:.4rem 0"><i data-lucide="map-pin" style="width:16px;height:16px;color:var(--green-600)"></i> Kankan, Guinée</p>
         </div>
-      </aside>`;
+      </aside>
+      </div>`;
 
     // Drawer behaviour
     const burger = document.getElementById("burger");
