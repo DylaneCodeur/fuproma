@@ -158,8 +158,8 @@
       const bgHtml = images.length > 1
         ? `<div class="hero__bg"><div class="swiper heroSwiper"><div class="swiper-wrapper">${
             images.map(src => `<div class="swiper-slide"><div class="hero__slide" style="background-image:url('${src}')"></div></div>`).join("")
-          }</div></div></div>`
-        : `<div class="hero__img" style="background-image:url('${images[0] || ""}')"></div>`;
+          }</div><div class="swiper-pagination heroPagination"></div></div></div>`
+        : `<div class="hero__img hero__img--kb" style="background-image:url('${images[0] || ""}')"></div>`;
 
       const crumbs = d.crumbs
         ? `<nav style="margin-bottom:1rem" data-aos="fade-up"><span style="font-size:.85rem;color:rgba(255,255,255,.75)"><a href="index.html" style="color:#fff;text-decoration:none">Accueil</a> &nbsp;/&nbsp; ${d.crumbs}</span></nav>`
@@ -180,7 +180,8 @@
           ${crumbs}
           ${d.eyebrow ? `<span class="eyebrow" data-aos="fade-up"><i data-lucide="${d.eyebrowIcon || 'sparkles'}" style="width:16px;height:16px"></i> ${d.eyebrow}</span>` : ""}
           <h1 style="margin-top:1rem" data-aos="fade-up" data-aos-delay="100">${d.title || ""}</h1>
-          ${d.subtitle ? `<p class="lead" style="margin-top:1.2rem" data-aos="fade-up" data-aos-delay="150">${d.subtitle}</p>` : ""}
+          ${d.typewords ? `<div class="hero-typed" data-aos="fade-up" data-aos-delay="140"><span class="hero-typed__label">${d.typeLabel || "Ensemble pour"} &nbsp;</span><span class="typewriter" data-words="${d.typewords}"></span></div>` : ""}
+          ${d.subtitle ? `<p class="lead" style="margin-top:1.2rem" data-aos="fade-up" data-aos-delay="180">${d.subtitle}</p>` : ""}
           ${actions}
         </div>
         ${d.cue === "true" ? `<div class="scroll-cue"><span></span></div>` : ""}
@@ -193,10 +194,36 @@
       if (images.length > 1 && window.Swiper) {
         new Swiper(el.querySelector(".heroSwiper"), {
           loop: true, effect: "fade", fadeEffect: { crossFade: true },
-          autoplay: { delay: 4500, disableOnInteraction: false }, speed: 1400,
+          autoplay: { delay: 5000, disableOnInteraction: false }, speed: 1600,
           allowTouchMove: false,
+          pagination: { el: el.querySelector(".heroPagination"), clickable: true },
         });
       }
+    });
+  }
+
+  /* -------------------- Machine à écrire -------------------- */
+  function initTypewriter() {
+    document.querySelectorAll(".typewriter").forEach(el => {
+      const words = (el.dataset.words || "").split(",").map(s => s.trim()).filter(Boolean);
+      if (!words.length) return;
+      let wi = 0, ci = 0, deleting = false;
+      const caret = document.createElement("span");
+      caret.className = "tw-caret"; caret.textContent = "|";
+      const txt = document.createElement("span");
+      el.textContent = ""; el.appendChild(txt); el.appendChild(caret);
+      const tick = () => {
+        const word = words[wi];
+        if (!deleting) {
+          txt.textContent = word.slice(0, ++ci);
+          if (ci === word.length) { deleting = true; return setTimeout(tick, 1600); }
+        } else {
+          txt.textContent = word.slice(0, --ci);
+          if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
+        }
+        setTimeout(tick, deleting ? 45 : 95);
+      };
+      setTimeout(tick, 500);
     });
   }
 
@@ -262,6 +289,7 @@
     buildHeader();
     buildFooter();
     buildHeroes();
+    initTypewriter();
     initCounters();
     initToTop();
     initFab();
