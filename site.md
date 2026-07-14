@@ -35,6 +35,7 @@ Siguiri
 Kouroussa
 Mandiana
 Faranah
+Dinguiraye
 avec une ambition d'extension à l'ensemble de la Guinée. 
 Afrique Verte 
 7. Organisation institutionnelle
@@ -70,7 +71,11 @@ Afrique Verte
 10. Partenaires
 La FUPROMA-HG collabore notamment avec :
 le Ministère de l'Agriculture ;
+la Chambre d'agriculture de Guinée (CNA) ;
+la Confédération des organisations paysannes de Guinée (CNOPG) ;
 le Projet de Développement Agricole Intégré en Guinée (PDAIG) ;
+le Projet PADAAMAG ;
+le PDACG ;
 l'ONG AGUISSA ;
 le Programme alimentaire mondial (PAM) dans certaines initiatives ;
 des organisations paysannes nationales et régionales. 
