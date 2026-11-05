@@ -7,6 +7,8 @@
 
   const BASE = "";
   const LOGO = "assets/img/logo.jpg";
+  const LINKEDIN_URL = "https://www.linkedin.com/company/fuproma2/";
+  const WHATSAPP_URL = "https://wa.me/224610087474";
 
   const NAV_LINKS = [
     { label: "Accueil", href: "index.html", icon: "home" },
@@ -123,8 +125,8 @@
             </a>
             <p style="font-size:.92rem;line-height:1.7;color:#b9cca8">Fédération des Unions des Producteurs de Maïs de la Haute Guinée. Pour une agriculture moderne, productive, résiliente et rentable.</p>
             <div style="display:flex;gap:.6rem;margin-top:1.2rem">
-              <a class="footer-social" href="#" aria-label="Facebook"><i data-lucide="facebook" style="width:20px;height:20px"></i></a>
-              <a class="footer-social" href="#" aria-label="WhatsApp"><i data-lucide="message-circle" style="width:20px;height:20px"></i></a>
+              <a class="footer-social" href="${LINKEDIN_URL}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i data-lucide="linkedin" style="width:20px;height:20px"></i></a>
+              <a class="footer-social" href="${WHATSAPP_URL}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i data-lucide="message-circle" style="width:20px;height:20px"></i></a>
               <a class="footer-social" href="mailto:fuproma112@gmail.com" aria-label="Email"><i data-lucide="mail" style="width:20px;height:20px"></i></a>
               <a class="footer-social" href="#" aria-label="Youtube"><i data-lucide="youtube" style="width:20px;height:20px"></i></a>
             </div>
@@ -271,7 +273,7 @@
     if (document.querySelector(".fab-contact")) return;
     const fab = document.createElement("div");
     fab.className = "fab-contact";
-    fab.innerHTML = `<a href="https://wa.me/224610087474" target="_blank" rel="noopener" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>`;
+    fab.innerHTML = `<a href="${WHATSAPP_URL}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp — +224 610 08 74 74"><i data-lucide="message-circle"></i></a>`;
     document.body.appendChild(fab);
   }
 
